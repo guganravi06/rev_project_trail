@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body.yesRedirect {
+            background-color: pink;
+        }
+    </style>
+    <title>title to choose</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <p class="header_text">
+                I really enjoy the time I spent with you and consider you an important part of my life. 
+                I can't help but have feelings for you. If you feel the same way, or think you could see me as a boyfriend, then I'd like to go out with you.
+            </p> 
+        </div>
+        <div class="gif_container">
+            <img src="https://th.bing.com/th/id/R.2c5d553d791a747232678191a9589146?rik=2jzseSBGvvtn5w&riu=http%3a%2f%2f68.media.tumblr.com%2f258bb453d827c1f95920cdaa0d422aab%2ftumblr_nzc5bwubIG1teg3r1o1_500.gif&ehk=tChcVREXT3P87pLFT0sGSxP86JCTRm0g9Zup8dCSZDs%3d&risl=&pid=ImgRaw&r=0"
+                 alt="image to add">
+        </div>
+       
+        <div class="button">
+            <button class="btn" id="yesButton" onclick="sendSMS()">Yes</button>
+            <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function sendSMS() {
+            // Make an HTTP POST request to your server
+            $.post('http://localhost:3000/send-sms', function (data) {
+                console.log(data);
+                alert('SMS sent successfully!');
+            });
+        }
+
+        function moveButton() {
+            var x = Math.random() * (window.innerWidth - 
+                document.getElementById('noButton').offsetWidth - 85);
+            var y = Math.random() * (window.innerHeight - 
+                document.getElementById('noButton').offsetHeight - 48);
+            document.getElementById('noButton').style.left = x + 'px';
+            document.getElementById('noButton').style.top = y + 'px';
+        }
+    </script>
+</body>
+</html>
