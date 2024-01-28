@@ -32,7 +32,7 @@
     <script>
         function sendSMS() {
             // Make an HTTP POST request to your server
-            $.post('http://localhost:3000/send-sms', function (data) {
+           $.post('https://your-netlify-site-url/send-sms', function (data) {
                 console.log(data);
                 alert('SMS sent successfully!');
             });
